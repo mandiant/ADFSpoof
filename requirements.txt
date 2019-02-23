@@ -1,0 +1,15 @@
+asn1crypto==0.24.0
+certifi==2018.8.13
+cffi==1.11.5
+cryptography==2.6.dev1
+defusedxml==0.5.0
+eight==0.4.2
+future==0.16.0
+hexdump==3.3
+idna==2.7
+lxml==4.2.4
+pyasn1==0.4.5
+pycparser==2.18
+pyOpenSSL==17.5.0
+signxml==2.5.2
+six==1.11.0
