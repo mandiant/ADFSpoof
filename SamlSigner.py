@@ -9,7 +9,7 @@ import re
 class SAMLSigner():
     def __init__(self, data, template, password=None):
         self.key, self.cert = self.load_x509(data, password)
-        with open(template, 'r') as infile:
+        with open("templates\\{0}.xml".format(template), 'r') as infile:
             self.saml_template = infile.read()
 
     def load_x509(self, data, password):

@@ -1,6 +1,7 @@
 import random
 import string
 import sys
+import base64
 
 
 def random_string():
@@ -34,7 +35,10 @@ def new_guid(stream):
 def encode_object_guid(guid):
     guid = guid.replace('}', '').replace('{', '')
     guid_parts = guid.split('-')
-    return guid_parts[0][6:] + guid_parts[0][4:6] + guid_parts[0][2:4] + guid_parts[0][0:2] + guid_parts[1][2:] + guid_parts[1][0:2] + guid_parts[2][2:] + guid_parts[2][0:2] + guid_parts[3] + guid_parts[4]
+    hex_string = guid_parts[0][6:] + guid_parts[0][4:6] + guid_parts[0][2:4] + guid_parts[0][0:2] + guid_parts[1][2:] + guid_parts[1][0:2] + guid_parts[2][2:] + guid_parts[2][0:2] + guid_parts[3] + guid_parts[4]
+    hex_array = bytearray.fromhex(hex_string)
+    immutable_id = base64.b64encode(hex_array)
+    return immutable_id
 
 
 def die():
