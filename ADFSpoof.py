@@ -67,7 +67,7 @@ def get_module_params(command):
     authn_instant = (now - second).strftime('%Y-%m-%dT%H:%M:%S.500Z')
 
     if command == 'o365':
-        immutable_id = encode_object_guid(args.objectguid)
+        immutable_id = encode_object_guid(args.objectguid).decode('ascii')
 
         params = {
             'TokenCreated': token_created,
@@ -100,7 +100,7 @@ if __name__ == "__main__":
 
     args = parse_args()
 
-    signer = get_signer()
+    signer = get_signer(args)
 
     params, id_attribute = get_module_params(args.command)
 

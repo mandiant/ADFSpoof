@@ -4,12 +4,10 @@ from cryptography.hazmat.primitives import hashes, hmac
 from cryptography.hazmat.primitives.kdf.kbkdf import (
     CounterLocation, KBKDFHMAC, Mode,
 )
-from pyasn1.type.univ import Integer, ObjectIdentifier, OctetString, Sequence
-from pyasn1.type.namedtype import NamedTypes
+from pyasn1.type.univ import ObjectIdentifier, OctetString
 from pyasn1.codec.der.decoder import decode as der_decode
 from pyasn1.codec.der.encoder import encode
 from utils import die, new_guid
-from cryptography import utils
 import sys
 import struct
 
@@ -125,14 +123,12 @@ class EncryptedPFX():
 
     def decode(self):
         version = struct.unpack('>I', self._raw[0:4])[0]
-        sys.stderr.write("Parsed version: {0}\n".format(version))
 
         if version != 1:
             sys.stderr.write("Version should be 0.\n")
             die()
 
         method = struct.unpack('>I', self._raw[4:8])[0]
-        sys.stderr.write("Parsed method: {0}\n".format(method))
 
         if method != 0:
             sys.stderr.write("Not using EncryptThenMAC. Currently only EncryptThenMAC is supported.")
