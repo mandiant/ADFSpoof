@@ -10,17 +10,9 @@ def random_string():
 
 def new_guid(stream):
     guid = []
-    zero = stream[0]
-    one = stream[1]
-    two = stream[2]
-    three = stream[3]
-    four = stream[4]
-    five = stream[5]
-    six = stream[6]
-    seven = stream[7]
-    guid.append(three << 24 | two << 16 | one << 8 | zero)
-    guid.append(five << 8 | four)
-    guid.append(seven << 8 | six)
+    guid.append(stream[3] << 24 | stream[2] << 16 | stream[1] << 8 | stream[0])
+    guid.append(stream[5] << 8 | stream[4])
+    guid.append(stream[7] << 8 | stream[6])
     guid.append(stream[8])
     guid.append(stream[9])
     guid.append(stream[10])

@@ -125,7 +125,7 @@ class EncryptedPFX():
         version = struct.unpack('>I', self._raw[0:4])[0]
 
         if version != 1:
-            sys.stderr.write("Version should be 0.\n")
+            sys.stderr.write("Version should be 1   .\n")
             die()
 
         method = struct.unpack('>I', self._raw[4:8])[0]
