@@ -1,7 +1,7 @@
 # POC for PFX
 from datetime import datetime, timedelta
 from argparse import ArgumentParser
-from utils import random_string, encode_object_guid, die
+from utils import random_string, encode_object_guid, die, print_intro
 from EncryptedPfx import EncryptedPFX
 from SamlSigner import SAMLSigner
 import sys
@@ -85,7 +85,7 @@ def get_signer(args):
                 pfx_file.write(decrypted_pfx)
             signer = None
         else:
-                signer = SAMLSigner(decrypted_pfx, args.command)
+            signer = SAMLSigner(decrypted_pfx, args.command)
 
     return signer
 
@@ -161,6 +161,7 @@ def get_module_params(command):
 
 
 if __name__ == "__main__":
+    print_intro()
 
     args = parse_args()
 

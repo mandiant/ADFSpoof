@@ -35,3 +35,15 @@ def encode_object_guid(guid):
 
 def die():
     sys.exit()
+
+
+def print_intro():
+
+    print('    ___    ____  ___________                   ____')
+    print('   /   |  / __ \/ ____/ ___/____  ____  ____  / __/')
+    print('  / /| | / / / / /_   \__ \/ __ \/ __ \/ __ \/ /_  ')
+    print(' / ___ |/ /_/ / __/  ___/ / /_/ / /_/ / /_/ / __/  ')
+    print('/_/  |_/_____/_/    /____/ .___/\____/\____/_/     ')
+    print('                        /_/                        \n')
+    print('A tool to for AD FS security tokens')
+    print('Created by @doughsec\n')
