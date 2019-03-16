@@ -2,7 +2,7 @@
 
 A python tool to forge AD FS security tokens.
 
-Created by Doug Bienstock [(@doughsec)](https://twitter.com/doughsec) while at Mandiant FireEye
+Created by Doug Bienstock [(@doughsec)](https://twitter.com/doughsec) while at Mandiant FireEye.
 
 ## Detailed Description
 
