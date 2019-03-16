@@ -10,6 +10,8 @@ ADFSpoof has two main functions:
 1. Given the EncryptedPFX blob from the AD FS configuration database and DKM decryption key from Active Directory, produce a usable key/cert pair for token signing.
 2. Given a signing key, produce a signed security token that can be used to access a federated application.
 
+This tool is meant to be used in conjunction with ADFSDump. ADFSDump runs on an AD FS server and outputs important information that you will need to use ADFSpoof.
+
 If you are confused by the above, you might want to read up on AD FS first. For more information on AD FS spoofing I will post a link to my TROOPERS 19 talk and slides when they are released.
 
 ## Installation

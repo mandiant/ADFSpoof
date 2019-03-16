@@ -45,6 +45,8 @@ class EncryptedPFX():
 
         if mac_code != self.mac:
             sys.stderr.write("Calculated MAC did not match anticipated MAC\n")
+            sys.stderr.write("Calculated MAC: {0}\n".format(mac_code))
+            sys.stderr.write("Expected MAC: {0}\n".format(self.mac))
             die()
         if self.DEBUG:
             sys.stderr.write("MAC Calculated over IV and Ciphertext: {0}\n".format(mac_code))
