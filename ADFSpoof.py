@@ -4,8 +4,10 @@ from argparse import ArgumentParser
 from utils import random_string, encode_object_guid, die, print_intro
 from EncryptedPfx import EncryptedPFX
 from SamlSigner import SAMLSigner
+from urllib import parse
 import sys
 import json
+import base64
 
 DEBUG = False
 
@@ -160,6 +162,14 @@ def get_module_params(command):
     return params, name_identifier
 
 
+def output_token(token, command):
+    if command != 'o365':
+        token = base64.b64encode(token)
+    token = parse.quote(token)
+
+    return token
+
+
 if __name__ == "__main__":
     print_intro()
 
@@ -176,4 +186,4 @@ if __name__ == "__main__":
             with open(args.output, 'wb') as token_file:
                 token_file.write(token)
         else:
-            print(token)
+            print(output_token(token, args.command))
