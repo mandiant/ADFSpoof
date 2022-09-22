@@ -1,7 +1,7 @@
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives import hashes, hmac
-from cryptography.hazmat.primitives.kdf.kbkdf import (
+from microsoft_kbkdf import (
     CounterLocation, KBKDFHMAC, Mode,
 )
 from pyasn1.type.univ import ObjectIdentifier, OctetString
