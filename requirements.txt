@@ -1,5 +1,5 @@
 asn1crypto==1.5.1
-certifi==2023.7.22
+certifi==2024.2.2
 cffi==1.12.2
 cryptography==42.0.4
 defusedxml==0.5.0
