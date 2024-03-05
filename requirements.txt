@@ -4,10 +4,10 @@ cffi==1.12.2
 cryptography==42.0.4
 defusedxml==0.5.0
 eight==0.4.2
-future==0.18.3
+future==1.0.0
 lxml==4.9.1
 pyasn1==0.4.5
 pycparser==2.19
 pyOpenSSL==18.0.0
-signxml==2.6.0
+signxml==3.2.2
 six==1.12.0
