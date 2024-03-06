@@ -1,6 +1,6 @@
 asn1crypto==1.5.1
 certifi==2024.2.2
-cffi==1.12.2
+cffi==1.16.0
 cryptography==42.0.4
 defusedxml==0.5.0
 eight==0.4.2
