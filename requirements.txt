@@ -5,7 +5,7 @@ cryptography==42.0.4
 defusedxml==0.5.0
 eight==1.0.1
 future==1.0.0
-lxml==4.9.1
+lxml==5.1.0
 pyasn1==0.5.1
 pycparser==2.19
 pyOpenSSL==18.0.0
