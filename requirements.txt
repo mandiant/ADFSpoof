@@ -7,7 +7,7 @@ eight==1.0.1
 future==1.0.0
 lxml==5.1.0
 pyasn1==0.5.1
+pyOpenSSL==24.1.0
 pycparser==2.21
-pyOpenSSL==18.0.0
 signxml==3.2.2
 six==1.16.0
