@@ -1,13 +1,13 @@
 asn1crypto==1.5.1
 certifi==2024.2.2
 cffi==1.16.0
-cryptography==42.0.4
+cryptography==42.0.5
 defusedxml==0.7.1
 eight==1.0.1
 future==1.0.0
 lxml==5.1.0
 pyasn1==0.5.1
-pycparser==2.19
 pyOpenSSL==24.1.0
+pycparser==2.21
 signxml==3.2.2
 six==1.16.0
