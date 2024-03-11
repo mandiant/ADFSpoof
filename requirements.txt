@@ -8,6 +8,6 @@ future==1.0.0
 lxml==5.1.0
 pyasn1==0.5.1
 pycparser==2.19
-pyOpenSSL==18.0.0
+pyOpenSSL==24.1.0
 signxml==3.2.2
 six==1.16.0
