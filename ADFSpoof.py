@@ -49,6 +49,12 @@ def parse_args():
     parser_generic_saml2.add_argument('--assertions', help='The XML assertions for the SAML token', default=None)
     parser_generic_saml2.add_argument('--config', help='JSON file containing generic args', default=None)
 
+    parser_generic_glpi = subparsers.add_parser('glpi')
+    parser_generic_glpi.add_argument('--endpoint', help='The destination/recipient attribute for SAML 2.0 token. Where the SAML token will be sent.', default=None)
+    parser_generic_glpi.add_argument('--nameid', help='The NameIdentifier attribute value', default=None)
+    parser_generic_glpi.add_argument('--rpidentifier', help='The Identifier for the Relying Party', default=None)
+    parser_generic_glpi.add_argument('--config', help='JSON file containing generic args', default=None)
+
     parser_dump = subparsers.add_parser('dump')
     parser_dump.add_argument('--path', help='Filepath where the signing token will be output.', default='token.pfx')
 
@@ -158,6 +164,34 @@ def get_module_params(command):
             }
         params.update(saml2_params)
         name_identifier = "ID"
+    
+    elif command == "glpi":
+        params = {
+            'TokenCreated': token_created,
+            'TokenExpires': token_expires,
+            'AdfsServer': args.server,
+            'AssertionID': args.assertionid,
+            'SubjectConfirmationTime': subject_confirmation_time,
+            'ResponseID': args.responseid,
+            'AuthnInstant': authn_instant
+        }
+
+        if args.config:
+            with open(args.config, 'r') as config_file:
+                data = config_file.read()
+            try:
+                glpi_params = json.loads(data)
+            except json.JSONDecodeError:
+                sys.stderr.write("Could not parse JSON config file for SAML2 token creation. Quitting.\n")
+                die()
+        else:
+            glpi_params = {
+                'SamlEndpoint': args.endpoint,
+                'NameID': args.nameid,
+                'RPIdentifier': args.rpidentifier,
+            }
+        params.update(glpi_params)
+        name_identifier = "ID"
 
     return params, name_identifier
 
@@ -180,6 +214,7 @@ if __name__ == "__main__":
     if args.command != 'dump':
         params, id_attribute = get_module_params(args.command)
 
+        print("=================",repr(id_attribute))
         token = signer.sign_XML(params, id_attribute, args.algorithm, args.digest)
 
         if args.output:
