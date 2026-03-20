@@ -1,4 +1,4 @@
-<samlp:Response ID="$ResponseID" Version="2.0" IssueInstant="$TokenCreated" Destination="$SamlEndpoint" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
+<samlp:Response ID="$ResponseID" InResponseTo="$InResponseTo" Version="2.0" IssueInstant="$TokenCreated" Destination="$SamlEndpoint" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
     xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
     <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://$AdfsServer/adfs/services/trust</Issuer>
     <samlp:Status>
