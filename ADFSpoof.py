@@ -21,6 +21,7 @@ def parse_args():
     arg_parser.add_argument('-v', '--verbose', help='Verbose Output', default=False)
     arg_parser.add_argument('--assertionid', help='AssertionID string. Defaults to a random string', default=random_string())
     arg_parser.add_argument('--responseid', help='The Response ID. Defaults to random string', default=random_string())
+    arg_parser.add_argument('--inresponseto', help='The InResponseTo attribute (ID from the SP AuthnRequest)', default=None)
     arg_parser.add_argument('-s', '--server', help='Identifier for the federation service. Usually the fqdn of the server. e.g. sts.example.com DO NOT include HTTPS://')
     arg_parser.add_argument('-a', '--algorithm', help='SAML signing algorithm to use', default='rsa-sha256')
     arg_parser.add_argument('-d', '--digest', help='SAML digest algorithm to use', default='sha256')
@@ -143,7 +144,8 @@ def get_module_params(command):
             'AdfsServer': args.server,
             'SubjectConfirmationTime': subject_confirmation_time,
             'ResponseID': args.responseid,
-            'AuthnInstant': authn_instant
+            'AuthnInstant': authn_instant,
+            'InResponseTo': args.inresponseto or ''
         }
 
         if args.config:
@@ -173,7 +175,8 @@ def get_module_params(command):
             'AssertionID': args.assertionid,
             'SubjectConfirmationTime': subject_confirmation_time,
             'ResponseID': args.responseid,
-            'AuthnInstant': authn_instant
+            'AuthnInstant': authn_instant,
+            'InResponseTo': args.inresponseto or ''
         }
 
         if args.config:
