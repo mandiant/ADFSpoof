@@ -1,5 +1,5 @@
 cryptography==2.9.2
-lxml==4.9.1
+lxml==6.1.0
 pyasn1==0.4.5
 signxml==2.6.0
 six==1.12.0
